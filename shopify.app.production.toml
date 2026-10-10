@@ -1,0 +1,47 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+# This file is the only Shopify config source for production deploys.
+
+client_id = "production-client-id"
+name = "BestFeed"
+application_url = "https://app.example.com"
+embedded = true
+web_directories = ["apps/admin"]
+
+[build]
+# Keep this disabled for the shared Production config.
+# Local development should use the Dev config instead of rewriting shared Production URLs.
+automatically_update_urls_on_dev = false
+include_config_on_deploy = true
+
+[webhooks]
+api_version = "2026-04"
+
+[[webhooks.subscriptions]]
+topics = ["app/uninstalled"]
+uri = "https://core.example.com/api/v1/shopify/webhook/app/uninstalled/bestfeed"
+
+[[webhooks.subscriptions]]
+topics = ["app/scopes_update"]
+uri = "https://core.example.com/api/v1/shopify/webhook/bestfeed"
+
+[[webhooks.subscriptions]]
+compliance_topics = [
+  "customers/data_request",
+  "customers/redact",
+  "shop/redact",
+]
+uri = "https://core.example.com/api/v1/shopify/compliance/webhook/bestfeed"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_products,write_products"
+optional_scopes = ["read_orders"]
+use_legacy_install_flow = false
+
+[auth]
+redirect_urls = [
+  "https://app.example.com/api/v2/shopify/callback/bestfeed",
+]
+
+[access.admin]
+direct_api_mode = "online"

@@ -1,0 +1,78 @@
+/* 全局样式：
+ * - 配色变量（暗色模式）
+ * - 基础布局（避免横向滚动）
+ * - Polaris Frame Toast 管理器位置偏移与点击透传
+ */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --app-toast-top-offset: 46px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.Polaris-Frame-ToastManager {
+  top: var(--pc-frame-global-ribbon-height);
+  bottom: auto;
+  pointer-events: none;
+}
+
+.Polaris-Frame-ToastManager__ToastWrapper {
+  pointer-events: auto;
+  transform: translateY(
+    calc(var(--pc-toast-manager-translate-y-out) * -1 - var(--app-toast-top-offset))
+  );
+}
+
+.Polaris-Frame-ToastManager__ToastWrapper--enter,
+.Polaris-Frame-ToastManager__ToastWrapper--exit {
+  transform: translateY(
+      calc(
+        var(--pc-toast-manager-translate-y-out) * -1 - var(--app-toast-top-offset)
+      )
+    )
+    scale(var(--pc-toast-manager-scale-out));
+}
+
+.Polaris-Frame-ToastManager--toastWrapperEnterDone {
+  transform: translateY(
+      calc(var(--pc-toast-manager-translate-y-in) * -1 - var(--app-toast-top-offset))
+    )
+    scale(var(--pc-toast-manager-scale-in));
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}

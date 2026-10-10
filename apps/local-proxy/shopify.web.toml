@@ -1,0 +1,7 @@
+# Shopify CLI web process configuration for the local proxy backend.
+
+roles = ["backend"]
+
+[commands]
+dev = "pnpm dev"
+build = "pnpm build"

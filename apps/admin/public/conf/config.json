@@ -1,0 +1,7 @@
+{
+  "SHOPIFY_API_KEY": "",
+  "BACKEND_API_BASE": "https://example.com",
+  "PLATFORM_API_BASE": "https://example.com",
+  "APP_NAME": "",
+  "APP_ORIGINS": "https://example.com"
+}

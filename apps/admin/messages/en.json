@@ -1,0 +1,23 @@
+{
+  "Dashboard": {
+    "title": "Dashboard",
+    "shopLabel": "Shop"
+  },
+  "Settings": {
+    "title": "Settings"
+  },
+  "Help": {
+    "title": "Help"
+  },
+  "Navigation": {
+    "dashboard": "Dashboard",
+    "settings": "Settings",
+    "help": "Help"
+  },
+  "Errors": {
+    "unknown": "Something went wrong. Please try again.",
+    "reauth": "Please reauthenticate to continue.",
+    "rateLimit": "Too many requests. Please retry shortly.",
+    "server": "Server error. Please retry shortly."
+  }
+}

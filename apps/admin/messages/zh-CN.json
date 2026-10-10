@@ -1,0 +1,23 @@
+{
+  "Dashboard": {
+    "title": "仪表盘",
+    "shopLabel": "店铺"
+  },
+  "Settings": {
+    "title": "设置"
+  },
+  "Help": {
+    "title": "帮助"
+  },
+  "Navigation": {
+    "dashboard": "仪表盘",
+    "settings": "设置",
+    "help": "帮助"
+  },
+  "Errors": {
+    "unknown": "发生错误，请稍后重试。",
+    "reauth": "请重新授权后继续。",
+    "rateLimit": "请求过于频繁，请稍后重试。",
+    "server": "服务器错误，请稍后重试。"
+  }
+}

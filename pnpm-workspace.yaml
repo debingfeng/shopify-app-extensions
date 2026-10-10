@@ -1,0 +1,9 @@
+packages:
+  - "apps/*"
+  - "extensions/*"
+  - "packages/*"
+  - "!dist/**"
+
+ignoredBuiltDependencies:
+  - sharp
+  - unrs-resolver

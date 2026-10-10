@@ -1,0 +1,9 @@
+# Shopify CLI web process configuration
+# This file tells `shopify app dev` how to start the Next.js dev server.
+# Learn more: https://shopify.dev/docs/apps/build/cli-for-apps/app-structure#web-files
+
+roles = ["frontend"]
+
+[commands]
+dev = "pnpm dev"
+build = "pnpm run build"
