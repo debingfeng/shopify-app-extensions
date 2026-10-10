@@ -80,3 +80,9 @@ key = "settings_message"
 type = "multi_line_text_field"
 name = "Merchant message"
 description = "Message shown by Demo 07"
+
+[[extensions.settings.fields]]
+key = "backend_api_url"
+type = "single_line_text_field"
+name = "Backend demo HTTPS URL"
+description = "Public HTTPS tunnel endpoint ending in /proxy/checkout-learning/session for Demo 06"

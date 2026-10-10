@@ -39,10 +39,28 @@ describe("handleRoute", () => {
     const response = await handleRoute(new Request("http://proxy.test/proxy/checkout-learning/session", {
       method: "POST",
       headers: {authorization: "Bearer demo-session-token", "content-type": "application/json"},
-      body: JSON.stringify({scenario: "backend"}),
+      body: JSON.stringify({scenario: "backend", target: "purchase.checkout.payment-method-list.render-after"}),
     }), {config: BASE_CONFIG});
     expect(response.status).toBe(200);
     expect(await response.json()).toMatchObject({ok: true, tokenReceived: true, echo: {scenario: "backend"}});
+    expect(response.headers.get("access-control-allow-origin")).toBe("*");
+  });
+
+  it("answers checkout backend CORS preflight", async () => {
+    const { handleRoute } = await import("./routes.js");
+    const response = await handleRoute(new Request("http://proxy.test/proxy/checkout-learning/session", {method: "OPTIONS"}), {config: BASE_CONFIG});
+    expect(response.status).toBe(204);
+    expect(response.headers.get("access-control-allow-headers")).toContain("Authorization");
+  });
+
+  it("rejects invalid checkout backend input", async () => {
+    const { handleRoute } = await import("./routes.js");
+    const response = await handleRoute(new Request("http://proxy.test/proxy/checkout-learning/session", {
+      method: "POST", headers: {authorization: "Bearer demo-session-token", "content-type": "application/json"},
+      body: JSON.stringify({scenario: "other"}),
+    }), {config: BASE_CONFIG});
+    expect(response.status).toBe(400);
+    expect(await response.json()).toMatchObject({error: "invalid backend demo input"});
   });
 
   it("forwards /proxy/api/api/* requests to the selected upstream business path", async () => {

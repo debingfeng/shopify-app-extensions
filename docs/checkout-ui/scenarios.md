@@ -55,9 +55,10 @@
 
 ## Demo 06 Backend 验证
 
-- 运行：启动 `pnpm dev:proxy` 与 `pnpm app:dev`，在 Checkout Editor 预览对应 target，点击 Call mock API。
-- 成功：扩展调用 `sessionToken.get()`，向 `/proxy/checkout-learning/session` 发送 Bearer token，Mock API 返回成功消息。
-- 失败：Mock API 在缺少 token、非 POST 或非 JSON 请求时返回错误；扩展显示 error 状态。
+- 运行：启动 `pnpm app:dev`，将 CLI 提供的可公开访问 HTTPS tunnel 地址加上 `/proxy/checkout-learning/session`，填入 Checkout Editor 的 `backend_api_url` 设置，再预览对应 target 并点击 Call mock API。单独启动 `pnpm dev:proxy` 只提供本地端口，Checkout 无法直接访问。
+- 成功：扩展调用 `sessionToken.get()`，向明确配置的 HTTPS 地址发送 Bearer token，Mock API 返回成功消息；接口响应跨域预检请求。
+- 失败：Mock API 在缺少 token、非 POST、非 JSON 或无效 Demo 请求体时返回错误；扩展显示 error 状态。
+- 配置限制：未设置有效的 HTTPS URL 时按钮禁用。Shopify 的 `network_access` capability 必须获准，且公开 tunnel 应能路由到 `apps/local-proxy`；本地单测不证明远程 Checkout 可达。
 - 限制：本地 Mock API 只验证 token header 存在，不验证 Shopify JWT 签名；生产后端必须按 Shopify 官方 session token 文档校验 issuer、audience、exp 等 claims。网络访问能力还受扩展配置和商店预览环境影响。
 
 ## Demo 07 Settings 验证
