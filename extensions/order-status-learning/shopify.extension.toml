@@ -1,0 +1,19 @@
+api_version = "2026-07"
+
+[[extensions]]
+type = "ui_extension"
+name = "Order status learning demo"
+handle = "order-status-learning"
+uid = "afffa723-2788-7ef1-c33e-1f71c8bb652001707cdf"
+description = "Order Status view and tracking entry for Demo 11"
+
+[[extensions.targeting]]
+target = "customer-account.order-status.block.render"
+module = "./src/order-status.tsx"
+
+[extensions.settings]
+[[extensions.settings.fields]]
+key = "tracking_url"
+type = "single_line_text_field"
+name = "Tracking URL"
+description = "Optional HTTPS tracking entry shown on Order Status"

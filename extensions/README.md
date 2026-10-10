@@ -8,6 +8,7 @@
 - `checkout-ui-learning/`
 - `checkout-validation-function/`
 - `discount-rules-function/`
+- `order-status-learning/`
 
 约定：
 
@@ -16,3 +17,4 @@
 - Admin UI 学习 demo 的技术说明见 `docs/admin-ui-extensions/`
 - 当前 workspace 的 `build` 先执行类型检查；实际 Shopify bundle 由 `shopify app dev` / `shopify app deploy` 编排
 - Checkout UI 学习工程说明见 `docs/checkout-ui/`
+- `order-status-learning/` 是 Demo 11 的 Customer Account Order Status 独立扩展；Checkout UI 包只承载 Thank You target。

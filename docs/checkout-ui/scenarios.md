@@ -14,7 +14,7 @@
 | 08 Protection | `purchase.checkout.reductions.render-after` | Cart Lines、Cart Instructions | 已实现；待店铺验证 |
 | 09 Buyer | `purchase.checkout.chat.render` | `buyerIdentity` | 已实现；待店铺验证；受 protected customer data 限制 |
 | 10 Validation | `cart.validations.generate.run` | Shopify Functions input/output | 已实现；待店铺验证 |
-| 11 Thank You / Order Status | `purchase.thank-you.block.render` | Order Confirmation API | Thank You 已实现；Order Status 需 Customer Account Extension |
+| 11 Thank You / Order Status | `purchase.thank-you.block.render`; `customer-account.order-status.block.render`（独立包） | Order Confirmation API；Customer Account Order Status API | 已实现；待店铺验证；受 Customer Account、登录态和客户数据权限限制 |
 | 12 Discount Rules | `cart.lines.discounts.generate.run`、`cart.delivery-options.discounts.generate.run` | Discount Function input/output | 已实现；本地 8 个用例通过；待店铺验证 |
 
 ## Demo 01 验证
@@ -82,10 +82,11 @@
 
 ## Demo 11 Thank You / Order Status 验证
 
-- 运行：完成一次测试订单后，在 Checkout Editor 预览 `purchase.thank-you.block.render`。
-- 成功：读取真实 `orderConfirmation`，显示订单号、首次订单状态；商家配置 `tracking_url` 后显示 tracking entry point。
-- 空状态：订单确认数据尚未生成时显示 pending 状态。
-- 限制：`purchase.order-status.*` 不在当前 Checkout UI Extension API target 列表中；不得在此工程中虚构该 target。要覆盖 Order Status，应另建 Customer Account UI Extension 使用对应 customer-account target。
+- Thank You 运行：完成一次测试订单后，在 Checkout Editor 预览 `purchase.thank-you.block.render`。
+- Order Status 运行：在 Customer Account UI Extension 编辑器添加独立包 `order-status-learning` 的 `customer-account.order-status.block.render` target，并使用测试订单的 Order Status 页面预览。
+- 成功：Thank You 读取真实 `orderConfirmation`；Order Status 读取真实 `order`，显示订单号和取消状态；任一包配置 HTTPS `tracking_url` 后显示 tracking entry point。
+- 空状态：订单确认或订单对象尚未生成时显示 pending 状态；Order Status 预认证买家显示受限访问提示。
+- 限制：Checkout UI Extension 不提供 Order Status target，因此实现位于独立 Customer Account UI Extension 包。Customer Account 页面、登录态、protected customer data 和商家可用性需在测试店铺单独验证。
 
 ## Demo 10 Checkout Validation Function 验证
 
