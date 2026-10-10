@@ -7,7 +7,7 @@
 | 01 Banner | `purchase.checkout.block.render` | Settings、Localization、Polaris Web Components | 已实现；待店铺验证 |
 | 02 Upsell | `purchase.checkout.cart-line-list.render-after` | `lines`、`instructions.lines`、`applyCartLinesChange` | 已实现；待店铺验证 |
 | 03 Discount | `purchase.checkout.block.render` | `discountCodes`、`instructions.discounts`、`applyDiscountCodeChange` | 已实现；待店铺验证 |
-| 04 Gift Message | `purchase.checkout.block.render` | Attributes、Cart Metafields、`instructions` | 规划中；受权限限制 |
+| 04 Gift Message | `purchase.checkout.contact.render-after` | Attributes、Cart Metafields、`instructions` | 已实现；待店铺验证；受权限限制 |
 | 05 Shipping | `purchase.checkout.delivery-address.render-after` | `shippingAddress`、`deliveryGroups` | 规划中；受保护客户数据限制 |
 | 06 Backend | `purchase.checkout.block.render` | `sessionToken`、`network_access` | 规划中；Mock API |
 | 07 Settings | `purchase.checkout.block.render` | `settings`、`localization` | 规划中 |
@@ -38,3 +38,10 @@
 - 成功：`Apply code` 调用 `applyDiscountCodeChange`，已应用的 code 可移除。
 - 失败：Shopify 返回的无效、过期或不适用原因显示为错误状态。
 - 限制：`instructions.discounts.canUpdateDiscountCodes` 为 false 时所有写操作禁用；加速结账与商家配置可能限制折扣更新。
+
+## Demo 04 Gift Message 验证
+
+- 运行：在 Checkout Editor 预览 `purchase.checkout.contact.render-after`，输入文本并保存。
+- 成功：属性能力可用时调用 `applyAttributeChange`；Metafield 能力也可用时再调用 `applyMetafieldChange`。
+- 失败：任一 Shopify 写操作返回 error 时显示错误状态。
+- 限制：Attributes、Cart Metafields 由 `instructions` 与 checkout/商家权限控制；accelerated checkout 可能拒绝写入，测试店铺结果需要单独记录。
