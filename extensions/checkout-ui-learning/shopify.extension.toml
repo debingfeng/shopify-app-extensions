@@ -53,11 +53,21 @@ module = "./src/protection.tsx"
 target = "purchase.checkout.chat.render"
 module = "./src/buyer.tsx"
 
+[[extensions.targeting]]
+target = "purchase.thank-you.block.render"
+module = "./src/thank-you.tsx"
+
 [[extensions.settings.fields]]
 key = "protection_variant_id"
 type = "single_line_text_field"
 name = "Protection variant GID"
 description = "ProductVariant GID used by Demo 08"
+
+[[extensions.settings.fields]]
+key = "tracking_url"
+type = "single_line_text_field"
+name = "Order tracking URL"
+description = "HTTPS tracking entry configured by the merchant for Demo 11"
 
 [[extensions.settings.fields]]
 key = "settings_title"
