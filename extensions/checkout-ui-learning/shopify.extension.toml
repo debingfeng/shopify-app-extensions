@@ -14,6 +14,10 @@ module = "./src/banner.tsx"
 target = "purchase.checkout.cart-line-list.render-after"
 module = "./src/upsell.tsx"
 
+[[extensions.targeting]]
+target = "purchase.checkout.footer.render-after"
+module = "./src/discount.tsx"
+
 [extensions.settings]
 [[extensions.settings.fields]]
 key = "upsell_variant_id"

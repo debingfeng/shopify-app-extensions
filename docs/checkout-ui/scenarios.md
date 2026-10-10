@@ -6,7 +6,7 @@
 | --- | --- | --- | --- |
 | 01 Banner | `purchase.checkout.block.render` | Settings、Localization、Polaris Web Components | 已实现；待店铺验证 |
 | 02 Upsell | `purchase.checkout.cart-line-list.render-after` | `lines`、`instructions.lines`、`applyCartLinesChange` | 已实现；待店铺验证 |
-| 03 Discount | `purchase.checkout.block.render` | `discountCodes`、`instructions.discounts`、`applyDiscountCodeChange` | 规划中 |
+| 03 Discount | `purchase.checkout.block.render` | `discountCodes`、`instructions.discounts`、`applyDiscountCodeChange` | 已实现；待店铺验证 |
 | 04 Gift Message | `purchase.checkout.block.render` | Attributes、Cart Metafields、`instructions` | 规划中；受权限限制 |
 | 05 Shipping | `purchase.checkout.delivery-address.render-after` | `shippingAddress`、`deliveryGroups` | 规划中；受保护客户数据限制 |
 | 06 Backend | `purchase.checkout.block.render` | `sessionToken`、`network_access` | 规划中；Mock API |
@@ -31,3 +31,10 @@
 - 成功：点击 Add upsell 后出现购物车行，点击 Remove upsell 后删除；操作结果由 `applyCartLinesChange` 决定。
 - 失败：无效变体、库存不足或 Shopify 返回错误时显示错误提示。
 - 限制：当 `instructions.lines.canAddCartLine` 或 `canRemoveCartLine` 为 false 时禁用对应操作；加速结账也可能拒绝写入。实际店铺预览待验证。
+
+## Demo 03 Discount 验证
+
+- 运行：在 Checkout Editor 预览 `purchase.checkout.block.render`，输入真实可用折扣码。
+- 成功：`Apply code` 调用 `applyDiscountCodeChange`，已应用的 code 可移除。
+- 失败：Shopify 返回的无效、过期或不适用原因显示为错误状态。
+- 限制：`instructions.discounts.canUpdateDiscountCodes` 为 false 时所有写操作禁用；加速结账与商家配置可能限制折扣更新。
