@@ -1,0 +1,11 @@
+api_version = "2026-07"
+
+[[extensions]]
+type = "ui_extension"
+name = "Checkout learning demos"
+handle = "checkout-ui-learning"
+description = "Twelve Checkout UI Extension learning scenarios using Preact and Polaris Web Components"
+
+[[extensions.targeting]]
+target = "purchase.checkout.block.render"
+module = "./src/banner.tsx"
