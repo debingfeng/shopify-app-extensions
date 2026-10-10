@@ -11,8 +11,8 @@
 | 05 Shipping | `purchase.checkout.delivery-address.render-after` | `shippingAddress`、`deliveryGroups` | 已实现；待店铺验证；受保护客户数据限制 |
 | 06 Backend | `purchase.checkout.payment-method-list.render-after` | `sessionToken`、`network_access` | 已实现；待店铺验证；Mock API |
 | 07 Settings | `purchase.checkout.header.render-after` | `settings`、`localization` | 已实现；待店铺验证 |
-| 08 Protection | `purchase.checkout.block.render` | Cart Lines、Cart Instructions | 规划中 |
-| 09 Buyer | `purchase.checkout.block.render` | `buyerIdentity` | 规划中；受 protected customer data 限制 |
+| 08 Protection | `purchase.checkout.reductions.render-after` | Cart Lines、Cart Instructions | 已实现；待店铺验证 |
+| 09 Buyer | `purchase.checkout.footer.render-after` | `buyerIdentity` | 已实现；待店铺验证；受 protected customer data 限制 |
 | 10 Validation | Checkout Validation Function | Shopify Functions input/output | 规划中 |
 | 11 Thank You / Order Status | `purchase.thank-you.block.render`、`purchase.order-status.block.render` | Order Confirmation API | 规划中；受 target 支持限制 |
 | 12 Discount Rules | Discount Function | Shopify Functions input/output | 规划中 |
@@ -66,3 +66,15 @@
 - 成功：扩展读取 merchant settings 并显示当前 Checkout language。
 - 空状态：编辑器尚未设置字段时显示中英文 fallback 与说明。
 - 限制：settings 为空是编辑器初始状态；语言只反映 Shopify 提供的 locale，未配置语言仍使用代码内 fallback。
+
+## Demo 08 Protection 验证
+
+- 运行：配置 `protection_variant_id` 为可销售变体，预览 reductions target。
+- 成功：开关通过 `applyCartLinesChange` 幂等添加/删除保障商品，重复点击不会重复添加。
+- 失败/限制：无效变体、库存或 Cart Instructions 禁止写操作时显示错误或禁用按钮。
+
+## Demo 09 Buyer 验证
+
+- 运行：在已登录与匿名买家 checkout 各预览一次。
+- 成功：只展示 Shopify 暴露的 email/customer ID。
+- 限制：缺少 protected customer data 权限时显示不可用；匿名买家没有客户字段属于正常状态。

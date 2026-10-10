@@ -44,6 +44,20 @@ module = "./src/backend.tsx"
 target = "purchase.checkout.header.render-after"
 module = "./src/settings.tsx"
 
+[[extensions.targeting]]
+target = "purchase.checkout.reductions.render-after"
+module = "./src/protection.tsx"
+
+[[extensions.targeting]]
+target = "purchase.checkout.footer.render-after"
+module = "./src/buyer.tsx"
+
+[[extensions.settings.fields]]
+key = "protection_variant_id"
+type = "single_line_text_field"
+name = "Protection variant GID"
+description = "ProductVariant GID used by Demo 08"
+
 [[extensions.settings.fields]]
 key = "settings_title"
 type = "single_line_text_field"
