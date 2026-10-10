@@ -13,7 +13,7 @@
 | 07 Settings | `purchase.checkout.header.render-after` | `settings`、`localization` | 已实现；待店铺验证 |
 | 08 Protection | `purchase.checkout.reductions.render-after` | Cart Lines、Cart Instructions | 已实现；待店铺验证 |
 | 09 Buyer | `purchase.checkout.chat.render` | `buyerIdentity` | 已实现；待店铺验证；受 protected customer data 限制 |
-| 10 Validation | Checkout Validation Function | Shopify Functions input/output | 规划中 |
+| 10 Validation | `cart.validations.generate.run` | Shopify Functions input/output | 已实现；待店铺验证 |
 | 11 Thank You / Order Status | `purchase.thank-you.block.render` | Order Confirmation API | Thank You 已实现；Order Status 需 Customer Account Extension |
 | 12 Discount Rules | Discount Function | Shopify Functions input/output | 规划中 |
 
@@ -85,3 +85,9 @@
 - 成功：读取真实 `orderConfirmation`，显示订单号、首次订单状态；商家配置 `tracking_url` 后显示 tracking entry point。
 - 空状态：订单确认数据尚未生成时显示 pending 状态。
 - 限制：`purchase.order-status.*` 不在当前 Checkout UI Extension API target 列表中；不得在此工程中虚构该 target。要覆盖 Order Status，应另建 Customer Account UI Extension 使用对应 customer-account target。
+
+## Demo 10 Checkout Validation Function 验证
+
+- 运行：`pnpm --filter @standhigher/checkout-validation-function test`。
+- 成功：数量为 1 的 cart line 返回空 errors；数量大于 1 时返回 `validationAdd` 错误。
+- 限制：Function 由 Shopify 执行，不能由 Checkout UI Extension 直接调用；是否可安装和启用取决于测试店铺、Functions 能力和商家计划。

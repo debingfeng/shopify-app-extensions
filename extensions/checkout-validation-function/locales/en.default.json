@@ -1,0 +1,4 @@
+{
+  "name": "Checkout validation learning function",
+  "description": "Rejects checkout lines over the configured learning limit"
+}

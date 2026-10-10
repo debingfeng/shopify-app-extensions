@@ -1,0 +1,17 @@
+api_version = "2026-07"
+
+[[extensions]]
+name = "Checkout validation learning function"
+handle = "checkout-validation-function"
+type = "function"
+uid = "8c89ddb0-2770-1e30-d0fa-ba6c23fcbd5b7a0c7064"
+description = "Rejects checkout lines over the configured learning limit"
+
+  [[extensions.targeting]]
+  target = "cart.validations.generate.run"
+  input_query = "src/cart_validations_generate_run.graphql"
+  export = "cart-validations-generate-run"
+
+  [extensions.build]
+  command = ""
+  path = "dist/function.wasm"
