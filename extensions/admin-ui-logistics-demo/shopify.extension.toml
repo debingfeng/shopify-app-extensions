@@ -1,0 +1,20 @@
+api_version = "2026-07"
+
+[[extensions]]
+type = "ui_extension"
+name = "Logistics learning demo"
+handle = "admin-ui-logistics-demo"
+uid = "4d11c608-2a54-4a6e-8e6a-719940d76857"
+description = "Learn Admin UI blocks, actions, and batch actions with a logistics mock"
+
+[[extensions.targeting]]
+target = "admin.order-details.block.render"
+module = "./src/order-details-block.tsx"
+
+[[extensions.targeting]]
+target = "admin.order-details.action.render"
+module = "./src/order-details-action.tsx"
+
+[[extensions.targeting]]
+target = "admin.order-index.selection-action.render"
+module = "./src/order-index-selection-action.tsx"
