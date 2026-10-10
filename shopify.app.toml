@@ -1,0 +1,48 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+# This file is the only Shopify config source for local development and test deploys.
+
+# Development Shopify App client ID used by the Admin UI Extension demos.
+client_id = "b619d8b384633280bb72ad2004be8993"
+name = "BestFeed Dev"
+application_url = "https://dev.example.com"
+embedded = true
+web_directories = ["apps/admin", "apps/local-proxy"]
+
+[build]
+# This template binds a fixed development Shopify App, so local dev can update
+# the App URL to the current tunnel. Confirm test URLs before test deploys.
+automatically_update_urls_on_dev = true
+include_config_on_deploy = true
+
+[webhooks]
+api_version = "2026-04"
+
+[[webhooks.subscriptions]]
+topics = ["app/uninstalled"]
+uri = "https://test-core.example.com/api/v1/shopify/webhook/app/uninstalled/bestfeed"
+
+[[webhooks.subscriptions]]
+topics = ["app/scopes_update"]
+uri = "https://test-core.example.com/api/v1/shopify/webhook/bestfeed"
+
+[[webhooks.subscriptions]]
+compliance_topics = [
+  "customers/data_request",
+  "customers/redact",
+  "shop/redact",
+]
+uri = "https://test-core.example.com/api/v1/shopify/compliance/webhook/bestfeed"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_products,write_products"
+optional_scopes = ["read_orders"]
+use_legacy_install_flow = false
+
+[auth]
+redirect_urls = [
+  "https://dev.example.com/api/v2/shopify/callback/bestfeed",
+]
+
+[access.admin]
+direct_api_mode = "online"
