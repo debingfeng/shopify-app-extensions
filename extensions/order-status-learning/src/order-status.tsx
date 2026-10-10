@@ -1,5 +1,4 @@
 import '@shopify/ui-extensions/preact';
-import '@shopify/ui-extensions/customer-account.order-status.block.render';
 import {render} from 'preact';
 import {useApi, useAuthenticationState, useOrder, useSettings} from '@shopify/ui-extensions/customer-account/preact';
 

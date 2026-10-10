@@ -71,7 +71,7 @@ importers:
     dependencies:
       '@shopify/ui-extensions':
         specifier: 2026-07
-        version: 2026.7.4(preact@10.29.8)
+        version: 2026.7.4(@preact/signals@2.11.3(preact@10.29.8))(preact@10.29.8)
       preact:
         specifier: ^10.27.0
         version: 10.29.8
@@ -82,9 +82,12 @@ importers:
 
   extensions/checkout-ui-learning:
     dependencies:
+      '@preact/signals':
+        specifier: ^2.3.1
+        version: 2.11.3(preact@10.29.8)
       '@shopify/ui-extensions':
         specifier: '2026.7'
-        version: 2026.7.4(preact@10.29.8)
+        version: 2026.7.4(@preact/signals@2.11.3(preact@10.29.8))(preact@10.29.8)
       preact:
         specifier: ^10.27.0
         version: 10.29.8
@@ -118,6 +121,22 @@ importers:
       vitest:
         specifier: ^3.2.4
         version: 3.2.7(@types/node@20.19.30)(jiti@2.7.0)(jsdom@29.1.1)(lightningcss@1.32.0)(tsx@4.23.1)(yaml@2.9.1)
+
+  extensions/order-status-learning:
+    dependencies:
+      '@preact/signals':
+        specifier: ^2.3.1
+        version: 2.11.3(preact@10.29.8)
+      '@shopify/ui-extensions':
+        specifier: '2026.7'
+        version: 2026.7.4(@preact/signals@2.11.3(preact@10.29.8))(preact@10.29.8)
+      preact:
+        specifier: ^10.27.0
+        version: 10.29.8
+    devDependencies:
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
 
   packages/config-eslint: {}
 
@@ -1187,6 +1206,14 @@ packages:
   '@parcel/watcher@2.5.6':
     resolution: {integrity: sha512-tmmZ3lQxAe/k/+rNnXQRawJ4NjxO2hqiOLTHvWchtGZULp4RyFeh6aU4XdOYBFe2KE1oShQTv4AblOs2iOrNnQ==}
     engines: {node: '>= 10.0.0'}
+
+  '@preact/signals-core@1.14.4':
+    resolution: {integrity: sha512-HNB6HYeYKhQbJ1aKl+YRjrS4+QWHLKX6qKoUsfS/m0vqzsVaEBiZiaKbG/e+NKk2ch5ALQr/ihWaMHxiCuuWHA==}
+
+  '@preact/signals@2.11.3':
+    resolution: {integrity: sha512-mttwFM98G/JiriTgMwU+UWygL6sfVmYEiNcPSKkUnv4PxPpZhmP2ugGC4qi360+ZIHyQ8NY05bfJT3b4RUIGlw==}
+    peerDependencies:
+      preact: '>= 10.25.0 || >=11.0.0-0'
 
   '@repeaterjs/repeater@3.1.0':
     resolution: {integrity: sha512-TaoVksZRSx2KWYYpyLQtMQXXeS98VsgZImzW65xmiVgbYhXLk+aEsmzPLirqVuE4/XuUapH2iMtxUzaBNDzdSQ==}
@@ -5324,6 +5351,13 @@ snapshots:
       '@parcel/watcher-win32-ia32': 2.5.6
       '@parcel/watcher-win32-x64': 2.5.6
 
+  '@preact/signals-core@1.14.4': {}
+
+  '@preact/signals@2.11.3(preact@10.29.8)':
+    dependencies:
+      '@preact/signals-core': 1.14.4
+      preact: 10.29.8
+
   '@repeaterjs/repeater@3.1.0': {}
 
   '@rolldown/binding-android-arm64@1.0.0':
@@ -5502,10 +5536,11 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@shopify/ui-extensions@2026.7.4(preact@10.29.8)':
+  '@shopify/ui-extensions@2026.7.4(@preact/signals@2.11.3(preact@10.29.8))(preact@10.29.8)':
     dependencies:
       ts-morph: 25.0.1
     optionalDependencies:
+      '@preact/signals': 2.11.3(preact@10.29.8)
       preact: 10.29.8
 
   '@standard-schema/spec@1.1.0': {}
