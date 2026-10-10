@@ -4,6 +4,7 @@ api_version = "2026-07"
 type = "ui_extension"
 name = "Checkout learning demos"
 handle = "checkout-ui-learning"
+uid = "83b89222-1f63-d409-5abe-f188ba28b766828a5eef"
 description = "Twelve Checkout UI Extension learning scenarios using Preact and Polaris Web Components"
 
 [[extensions.targeting]]
@@ -49,7 +50,7 @@ target = "purchase.checkout.reductions.render-after"
 module = "./src/protection.tsx"
 
 [[extensions.targeting]]
-target = "purchase.checkout.footer.render-after"
+target = "purchase.checkout.chat.render"
 module = "./src/buyer.tsx"
 
 [[extensions.settings.fields]]

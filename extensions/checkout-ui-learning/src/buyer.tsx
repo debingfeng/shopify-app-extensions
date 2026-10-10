@@ -8,7 +8,7 @@ export default function extension() {
 }
 
 function Buyer() {
-  const api = useApi<'purchase.checkout.footer.render-after'>();
+  const api = useApi<'purchase.checkout.chat.render'>();
   const identity = api.buyerIdentity;
   const email = identity?.email.current;
   const customer = identity?.customer.current;

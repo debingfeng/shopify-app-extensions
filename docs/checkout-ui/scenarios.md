@@ -12,7 +12,7 @@
 | 06 Backend | `purchase.checkout.payment-method-list.render-after` | `sessionToken`、`network_access` | 已实现；待店铺验证；Mock API |
 | 07 Settings | `purchase.checkout.header.render-after` | `settings`、`localization` | 已实现；待店铺验证 |
 | 08 Protection | `purchase.checkout.reductions.render-after` | Cart Lines、Cart Instructions | 已实现；待店铺验证 |
-| 09 Buyer | `purchase.checkout.footer.render-after` | `buyerIdentity` | 已实现；待店铺验证；受 protected customer data 限制 |
+| 09 Buyer | `purchase.checkout.chat.render` | `buyerIdentity` | 已实现；待店铺验证；受 protected customer data 限制 |
 | 10 Validation | Checkout Validation Function | Shopify Functions input/output | 规划中 |
 | 11 Thank You / Order Status | `purchase.thank-you.block.render`、`purchase.order-status.block.render` | Order Confirmation API | 规划中；受 target 支持限制 |
 | 12 Discount Rules | Discount Function | Shopify Functions input/output | 规划中 |
