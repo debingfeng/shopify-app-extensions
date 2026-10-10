@@ -1,0 +1,4 @@
+{
+  "name": "Discount rules learning function",
+  "description": "Applies deterministic learning discounts for supported discount classes"
+}

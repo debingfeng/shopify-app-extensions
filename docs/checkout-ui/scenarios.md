@@ -15,7 +15,7 @@
 | 09 Buyer | `purchase.checkout.chat.render` | `buyerIdentity` | 已实现；待店铺验证；受 protected customer data 限制 |
 | 10 Validation | `cart.validations.generate.run` | Shopify Functions input/output | 已实现；待店铺验证 |
 | 11 Thank You / Order Status | `purchase.thank-you.block.render` | Order Confirmation API | Thank You 已实现；Order Status 需 Customer Account Extension |
-| 12 Discount Rules | Discount Function | Shopify Functions input/output | 规划中 |
+| 12 Discount Rules | `cart.lines.discounts.generate.run`、`cart.delivery-options.discounts.generate.run` | Discount Function input/output | 已实现；本地 8 个用例通过；待店铺验证 |
 
 ## Demo 01 验证
 
@@ -91,3 +91,10 @@
 - 运行：`pnpm --filter @standhigher/checkout-validation-function test`。
 - 成功：数量为 1 的 cart line 返回空 errors；数量大于 1 时返回 `validationAdd` 错误。
 - 限制：Function 由 Shopify 执行，不能由 Checkout UI Extension 直接调用；是否可安装和启用取决于测试店铺、Functions 能力和商家计划。
+
+## Demo 12 Discount Rules Function 验证
+
+- 运行：`pnpm --filter @standhigher/discount-rules-function test -- --run`，然后运行 `pnpm --filter @standhigher/discount-rules-function build`。在支持 Shopify Functions 的测试店铺部署并创建使用此 Function 的折扣后，分别验证 Product、Order、Shipping 折扣类别。
+- 成功：当折扣类别包含 `ORDER` 时对订单小计提供 10% 候选折扣；包含 `PRODUCT` 时对小计最高的购物车行提供 20% 候选折扣；包含 `SHIPPING` 且有配送组时，对首个配送组提供 100% 候选折扣。测试输入和预期输出位于 `extensions/discount-rules-function/tests/fixtures/`。
+- 空状态：购物车无行、没有相应折扣类别或没有配送组时返回空 `operations`。本地集成测试共 8 个用例通过。
+- 失败/限制：商品不符合折扣条件、折扣未激活、组合规则冲突或商店没有对应 Function 能力时，最终折扣由 Shopify 平台决定；本地测试无法证明 Checkout 实际折扣结果。此示例的固定百分比仅供学习，启用前须在测试店铺确认折扣配置。Demo 03 只负责买家输入/移除折扣码，不能直接调用 Function；Function 由 Shopify 执行。
