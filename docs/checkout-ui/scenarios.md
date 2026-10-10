@@ -10,7 +10,7 @@
 | 04 Gift Message | `purchase.checkout.contact.render-after` | Attributes、Cart Metafields、`instructions` | 已实现；待店铺验证；受权限限制 |
 | 05 Shipping | `purchase.checkout.delivery-address.render-after` | `shippingAddress`、`deliveryGroups` | 已实现；待店铺验证；受保护客户数据限制 |
 | 06 Backend | `purchase.checkout.payment-method-list.render-after` | `sessionToken`、`network_access` | 已实现；待店铺验证；Mock API |
-| 07 Settings | `purchase.checkout.block.render` | `settings`、`localization` | 规划中 |
+| 07 Settings | `purchase.checkout.header.render-after` | `settings`、`localization` | 已实现；待店铺验证 |
 | 08 Protection | `purchase.checkout.block.render` | Cart Lines、Cart Instructions | 规划中 |
 | 09 Buyer | `purchase.checkout.block.render` | `buyerIdentity` | 规划中；受 protected customer data 限制 |
 | 10 Validation | Checkout Validation Function | Shopify Functions input/output | 规划中 |
@@ -59,3 +59,10 @@
 - 成功：扩展调用 `sessionToken.get()`，向 `/proxy/checkout-learning/session` 发送 Bearer token，Mock API 返回成功消息。
 - 失败：Mock API 在缺少 token、非 POST 或非 JSON 请求时返回错误；扩展显示 error 状态。
 - 限制：本地 Mock API 只验证 token header 存在，不验证 Shopify JWT 签名；生产后端必须按 Shopify 官方 session token 文档校验 issuer、audience、exp 等 claims。网络访问能力还受扩展配置和商店预览环境影响。
+
+## Demo 07 Settings 验证
+
+- 运行：在 Checkout Editor 为 `settings_title` 和 `settings_message` 填值，预览 `purchase.checkout.header.render-after`。
+- 成功：扩展读取 merchant settings 并显示当前 Checkout language。
+- 空状态：编辑器尚未设置字段时显示中英文 fallback 与说明。
+- 限制：settings 为空是编辑器初始状态；语言只反映 Shopify 提供的 locale，未配置语言仍使用代码内 fallback。

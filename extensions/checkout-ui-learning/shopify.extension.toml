@@ -39,3 +39,19 @@ network_access = true
 [[extensions.targeting]]
 target = "purchase.checkout.payment-method-list.render-after"
 module = "./src/backend.tsx"
+
+[[extensions.targeting]]
+target = "purchase.checkout.header.render-after"
+module = "./src/settings.tsx"
+
+[[extensions.settings.fields]]
+key = "settings_title"
+type = "single_line_text_field"
+name = "Merchant title"
+description = "Heading shown by Demo 07"
+
+[[extensions.settings.fields]]
+key = "settings_message"
+type = "multi_line_text_field"
+name = "Merchant message"
+description = "Message shown by Demo 07"

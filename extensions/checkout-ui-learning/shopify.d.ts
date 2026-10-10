@@ -8,6 +8,7 @@ import '@shopify/ui-extensions/purchase.checkout.footer.render-after';
 import '@shopify/ui-extensions/purchase.checkout.contact.render-after';
 import '@shopify/ui-extensions/purchase.checkout.delivery-address.render-after';
 import '@shopify/ui-extensions/purchase.checkout.payment-method-list.render-after';
+import '@shopify/ui-extensions/purchase.checkout.header.render-after';
 
 declare global {
   const shopify: import('@shopify/ui-extensions/checkout').ApiForExtension<'purchase.checkout.block.render'>;
