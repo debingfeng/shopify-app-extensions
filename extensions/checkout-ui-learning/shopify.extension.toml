@@ -9,3 +9,14 @@ description = "Twelve Checkout UI Extension learning scenarios using Preact and 
 [[extensions.targeting]]
 target = "purchase.checkout.block.render"
 module = "./src/banner.tsx"
+
+[[extensions.targeting]]
+target = "purchase.checkout.cart-line-list.render-after"
+module = "./src/upsell.tsx"
+
+[extensions.settings]
+[[extensions.settings.fields]]
+key = "upsell_variant_id"
+type = "single_line_text_field"
+name = "Upsell variant GID"
+description = "ProductVariant GID used by Demo 02"

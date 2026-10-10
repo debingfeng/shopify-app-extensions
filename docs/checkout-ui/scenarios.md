@@ -5,7 +5,7 @@
 | Demo | Target | 核心 API | 状态 |
 | --- | --- | --- | --- |
 | 01 Banner | `purchase.checkout.block.render` | Settings、Localization、Polaris Web Components | 已实现；待店铺验证 |
-| 02 Upsell | `purchase.checkout.block.render` | `lines`、`instructions.lines`、`applyCartLinesChange` | 规划中 |
+| 02 Upsell | `purchase.checkout.cart-line-list.render-after` | `lines`、`instructions.lines`、`applyCartLinesChange` | 已实现；待店铺验证 |
 | 03 Discount | `purchase.checkout.block.render` | `discountCodes`、`instructions.discounts`、`applyDiscountCodeChange` | 规划中 |
 | 04 Gift Message | `purchase.checkout.block.render` | Attributes、Cart Metafields、`instructions` | 规划中；受权限限制 |
 | 05 Shipping | `purchase.checkout.delivery-address.render-after` | `shippingAddress`、`deliveryGroups` | 规划中；受保护客户数据限制 |
@@ -24,3 +24,10 @@
 - 成功：显示商家配置或默认的双语公告。
 - 空配置：使用内置中英文 fallback。
 - 限制：商家未启用该 target、扩展未安装或 Checkout Editor 不支持时不会显示；该状态必须以 Shopify CLI/测试店铺结果为准。
+
+## Demo 02 Upsell 验证
+
+- 运行：在 Checkout Editor 设置 `upsell_variant_id` 为可销售的 ProductVariant GID，预览 `purchase.checkout.cart-line-list.render-after`。
+- 成功：点击 Add upsell 后出现购物车行，点击 Remove upsell 后删除；操作结果由 `applyCartLinesChange` 决定。
+- 失败：无效变体、库存不足或 Shopify 返回错误时显示错误提示。
+- 限制：当 `instructions.lines.canAddCartLine` 或 `canRemoveCartLine` 为 false 时禁用对应操作；加速结账也可能拒绝写入。实际店铺预览待验证。
