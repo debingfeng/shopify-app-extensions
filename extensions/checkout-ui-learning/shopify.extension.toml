@@ -22,6 +22,10 @@ module = "./src/discount.tsx"
 target = "purchase.checkout.contact.render-after"
 module = "./src/gift-message.tsx"
 
+[[extensions.targeting]]
+target = "purchase.checkout.delivery-address.render-after"
+module = "./src/shipping.tsx"
+
 [extensions.settings]
 [[extensions.settings.fields]]
 key = "upsell_variant_id"

@@ -8,7 +8,7 @@
 | 02 Upsell | `purchase.checkout.cart-line-list.render-after` | `lines`、`instructions.lines`、`applyCartLinesChange` | 已实现；待店铺验证 |
 | 03 Discount | `purchase.checkout.block.render` | `discountCodes`、`instructions.discounts`、`applyDiscountCodeChange` | 已实现；待店铺验证 |
 | 04 Gift Message | `purchase.checkout.contact.render-after` | Attributes、Cart Metafields、`instructions` | 已实现；待店铺验证；受权限限制 |
-| 05 Shipping | `purchase.checkout.delivery-address.render-after` | `shippingAddress`、`deliveryGroups` | 规划中；受保护客户数据限制 |
+| 05 Shipping | `purchase.checkout.delivery-address.render-after` | `shippingAddress`、`deliveryGroups` | 已实现；待店铺验证；受保护客户数据限制 |
 | 06 Backend | `purchase.checkout.block.render` | `sessionToken`、`network_access` | 规划中；Mock API |
 | 07 Settings | `purchase.checkout.block.render` | `settings`、`localization` | 规划中 |
 | 08 Protection | `purchase.checkout.block.render` | Cart Lines、Cart Instructions | 规划中 |
@@ -45,3 +45,10 @@
 - 成功：属性能力可用时调用 `applyAttributeChange`；Metafield 能力也可用时再调用 `applyMetafieldChange`。
 - 失败：任一 Shopify 写操作返回 error 时显示错误状态。
 - 限制：Attributes、Cart Metafields 由 `instructions` 与 checkout/商家权限控制；accelerated checkout 可能拒绝写入，测试店铺结果需要单独记录。
+
+## Demo 05 Shipping 验证
+
+- 运行：在 Checkout Editor 预览 `purchase.checkout.delivery-address.render-after`，分别测试数字商品、实体商品和未填写地址。
+- 成功：读取真实 shipping address、delivery groups、delivery options 与 selected option。
+- 空状态：地址未提交或 Shopify 尚未计算配送费时显示等待状态。
+- 限制：Shipping address 属于 protected customer data；target、权限、数字商品和加速结账可能导致字段或配送组不可用。

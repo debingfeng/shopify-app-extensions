@@ -6,6 +6,7 @@ import '@shopify/ui-extensions/purchase.checkout.block.render';
 import '@shopify/ui-extensions/purchase.checkout.cart-line-list.render-after';
 import '@shopify/ui-extensions/purchase.checkout.footer.render-after';
 import '@shopify/ui-extensions/purchase.checkout.contact.render-after';
+import '@shopify/ui-extensions/purchase.checkout.delivery-address.render-after';
 
 declare global {
   const shopify: import('@shopify/ui-extensions/checkout').ApiForExtension<'purchase.checkout.block.render'>;
