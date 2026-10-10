@@ -32,3 +32,10 @@ key = "upsell_variant_id"
 type = "single_line_text_field"
 name = "Upsell variant GID"
 description = "ProductVariant GID used by Demo 02"
+
+[extensions.capabilities]
+network_access = true
+
+[[extensions.targeting]]
+target = "purchase.checkout.payment-method-list.render-after"
+module = "./src/backend.tsx"

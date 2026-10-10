@@ -9,7 +9,7 @@
 | 03 Discount | `purchase.checkout.block.render` | `discountCodes`、`instructions.discounts`、`applyDiscountCodeChange` | 已实现；待店铺验证 |
 | 04 Gift Message | `purchase.checkout.contact.render-after` | Attributes、Cart Metafields、`instructions` | 已实现；待店铺验证；受权限限制 |
 | 05 Shipping | `purchase.checkout.delivery-address.render-after` | `shippingAddress`、`deliveryGroups` | 已实现；待店铺验证；受保护客户数据限制 |
-| 06 Backend | `purchase.checkout.block.render` | `sessionToken`、`network_access` | 规划中；Mock API |
+| 06 Backend | `purchase.checkout.payment-method-list.render-after` | `sessionToken`、`network_access` | 已实现；待店铺验证；Mock API |
 | 07 Settings | `purchase.checkout.block.render` | `settings`、`localization` | 规划中 |
 | 08 Protection | `purchase.checkout.block.render` | Cart Lines、Cart Instructions | 规划中 |
 | 09 Buyer | `purchase.checkout.block.render` | `buyerIdentity` | 规划中；受 protected customer data 限制 |
@@ -52,3 +52,10 @@
 - 成功：读取真实 shipping address、delivery groups、delivery options 与 selected option。
 - 空状态：地址未提交或 Shopify 尚未计算配送费时显示等待状态。
 - 限制：Shipping address 属于 protected customer data；target、权限、数字商品和加速结账可能导致字段或配送组不可用。
+
+## Demo 06 Backend 验证
+
+- 运行：启动 `pnpm dev:proxy` 与 `pnpm app:dev`，在 Checkout Editor 预览对应 target，点击 Call mock API。
+- 成功：扩展调用 `sessionToken.get()`，向 `/proxy/checkout-learning/session` 发送 Bearer token，Mock API 返回成功消息。
+- 失败：Mock API 在缺少 token、非 POST 或非 JSON 请求时返回错误；扩展显示 error 状态。
+- 限制：本地 Mock API 只验证 token header 存在，不验证 Shopify JWT 签名；生产后端必须按 Shopify 官方 session token 文档校验 issuer、audience、exp 等 claims。网络访问能力还受扩展配置和商店预览环境影响。

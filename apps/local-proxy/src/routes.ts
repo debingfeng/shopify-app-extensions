@@ -1,5 +1,6 @@
 import { handleApiProxyRequest } from "./handlers/api-proxy.js";
 import { handleHealthRequest } from "./handlers/health.js";
+import { handleCheckoutDemoRequest } from "./handlers/checkout-demo.js";
 import { handleShopifyCallbackRequest } from "./handlers/shopify-callback.js";
 import { handleShopifyEntryRequest } from "./handlers/shopify-entry.js";
 import {
@@ -25,6 +26,10 @@ export async function handleRoute(
 
   if (request.method === "GET" && pathname === "/health") {
     return handleHealthRequest();
+  }
+
+  if (matchesBasePath(pathname, "/proxy/checkout-learning/session")) {
+    return handleCheckoutDemoRequest(request);
   }
 
   if (matchesBasePath(pathname, "/proxy/api")) {

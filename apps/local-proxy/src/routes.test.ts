@@ -27,6 +27,24 @@ describe("handleRoute", () => {
     });
   });
 
+  it("requires a session token for the checkout learning mock", async () => {
+    const { handleRoute } = await import("./routes.js");
+    const response = await handleRoute(new Request("http://proxy.test/proxy/checkout-learning/session", {method: "POST", body: "{}"}), {config: BASE_CONFIG});
+    expect(response.status).toBe(401);
+    expect(await response.json()).toEqual({ok: false, error: "missing session token"});
+  });
+
+  it("returns a mock response for a tokenized checkout request", async () => {
+    const { handleRoute } = await import("./routes.js");
+    const response = await handleRoute(new Request("http://proxy.test/proxy/checkout-learning/session", {
+      method: "POST",
+      headers: {authorization: "Bearer demo-session-token", "content-type": "application/json"},
+      body: JSON.stringify({scenario: "backend"}),
+    }), {config: BASE_CONFIG});
+    expect(response.status).toBe(200);
+    expect(await response.json()).toMatchObject({ok: true, tokenReceived: true, echo: {scenario: "backend"}});
+  });
+
   it("forwards /proxy/api/api/* requests to the selected upstream business path", async () => {
     const { handleRoute } = await import("./routes.js");
     const forwardProxyRequest = vi.fn(async () => new Response(null, { status: 204 }));
