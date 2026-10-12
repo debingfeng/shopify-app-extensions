@@ -4,7 +4,9 @@
 
 未来可在这里新增：
 
-- `admin-ui-logistics-demo/`
+- `admin-ui-logistics-block/`：订单详情 Block
+- `admin-ui-logistics-demo/`：订单详情 Action
+- `admin-ui-logistics-selection/`：订单列表 Selection Action
 - `checkout-ui-learning/`
 - `checkout-validation-function/`
 - `discount-rules-function/`

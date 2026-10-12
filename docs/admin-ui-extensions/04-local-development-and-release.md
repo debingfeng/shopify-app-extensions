@@ -25,7 +25,7 @@ pnpm app:dev
 
 1. 打开开发店铺的订单详情页。
 2. 进入 App blocks 或页面编辑入口。
-3. 添加并固定“Logistics learning demo”。
+3. 添加并固定“Logistics learning block”。
 4. 确认订单 ID、状态、运单号和刷新按钮出现。
 
 ### Action
@@ -46,7 +46,8 @@ pnpm app:dev
 
 | 现象 | 排查 |
 | --- | --- |
-| Block 不出现 | 确认已添加并固定；确认 `admin.order-details.block.render` target 和 App 安装店铺一致 |
+| Block 不出现 | 确认已添加并固定 “Logistics learning block”；确认 `admin.order-details.block.render` 在独立 extension 中 |
+| dev preview 报 Invalid extension point(s) | Block、订单详情 Action、订单列表 Selection Action 必须各占一个 extension，每个 `shopify.extension.toml` 只保留一个 target |
 | Action 不在菜单 | 确认当前页面是订单详情；检查 target、handle 和 CLI 输出 |
 | Selection Action 不出现 | 确认已选择订单；检查 target 是 `admin.order-index.selection-action.render` |
 | `selected` 为空 | 检查是否在正确页面/target；不要用 URL 解析替代上下文 API |

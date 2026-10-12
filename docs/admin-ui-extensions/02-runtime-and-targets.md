@@ -29,9 +29,9 @@ api_version = "2026-07"
 
 [[extensions]]
 type = "ui_extension"
-name = "Logistics learning demo"
-handle = "admin-ui-logistics-demo"
-uid = "4d11c608-2a54-4a6e-8e6a-719940d76857"
+name = "Logistics learning block"
+handle = "admin-ui-logistics-block"
+uid = "397dee65-2933-4915-8d20-d34c9bd26a5f"
 
 [[extensions.targeting]]
 target = "admin.order-details.block.render"
@@ -48,7 +48,11 @@ module = "./src/order-details-block.tsx"
 - `target`：注入位置和能力集合。
 - `module`：对应的 TSX/JSX 入口模块。
 
-每个入口文件都导出一个异步默认函数，并在 `document.body` 上调用 Preact 的 `render()`。Action 和 Block 官方教程常按一个 extension 一个 target 生成；参考配置允许多个 targeting。遇到 CLI 或版本限制时，应把三个入口拆成三个 extension 目录，共享 `src/shared` 代码。
+每个入口文件都导出一个异步默认函数，并在 `document.body` 上调用 Preact 的 `render()`。这三个 target 必须各占一个 extension，否则 `shopify app dev` 会拒绝启动 dev preview：
+
+- `extensions/admin-ui-logistics-block`：`admin.order-details.block.render`
+- `extensions/admin-ui-logistics-demo`：`admin.order-details.action.render`
+- `extensions/admin-ui-logistics-selection`：`admin.order-index.selection-action.render`
 
 ## 3. Block
 

@@ -1,0 +1,12 @@
+api_version = "2026-07"
+
+[[extensions]]
+type = "ui_extension"
+name = "Logistics learning selection"
+handle = "admin-ui-logistics-selection"
+uid = "ed4121ae-8143-4e21-98d4-d573a41ef32c"
+description = "Order index selection action for the logistics learning demo"
+
+[[extensions.targeting]]
+target = "admin.order-index.selection-action.render"
+module = "./src/order-index-selection-action.tsx"

@@ -15,15 +15,15 @@
 ## 本仓库 Demo
 
 ```text
+extensions/admin-ui-logistics-block/
+  shopify.extension.toml
+  src/order-details-block.tsx
 extensions/admin-ui-logistics-demo/
   shopify.extension.toml
-  src/
-    shared/context.ts
-    shared/logistics.ts
-    shared/ui.ts
-    order-details-block.tsx
-    order-details-action.tsx
-    order-index-selection-action.tsx
+  src/order-details-action.tsx
+extensions/admin-ui-logistics-selection/
+  shopify.extension.toml
+  src/order-index-selection-action.tsx
 ```
 
 Demo 的 mock 只用于学习 UI、上下文和状态管理。真实业务需要由 App backend 负责鉴权、权限判断、持久化和第三方物流调用。

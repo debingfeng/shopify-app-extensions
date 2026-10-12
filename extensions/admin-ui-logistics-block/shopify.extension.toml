@@ -1,0 +1,12 @@
+api_version = "2026-07"
+
+[[extensions]]
+type = "ui_extension"
+name = "Logistics learning block"
+handle = "admin-ui-logistics-block"
+uid = "397dee65-2933-4915-8d20-d34c9bd26a5f"
+description = "Order details block for the logistics learning demo"
+
+[[extensions.targeting]]
+target = "admin.order-details.block.render"
+module = "./src/order-details-block.tsx"

@@ -2,7 +2,7 @@
 
 ## 1. 配置入口
 
-打开 [`shopify.extension.toml`](../../extensions/admin-ui-logistics-demo/shopify.extension.toml)，先看三个 targeting。配置只声明“在哪里出现”和“哪个模块负责”，业务逻辑在 TSX 中。
+这三个 target 各有一份 `shopify.extension.toml`：[Block](../../extensions/admin-ui-logistics-block/shopify.extension.toml)、[订单详情 Action](../../extensions/admin-ui-logistics-demo/shopify.extension.toml)、[订单列表 Selection Action](../../extensions/admin-ui-logistics-selection/shopify.extension.toml)。配置只声明“在哪里出现”和“哪个模块负责”，业务逻辑在 TSX 中。
 
 ## 2. 共享上下文
 
@@ -15,7 +15,7 @@
 
 ## 3. Block：先读后显
 
-[`src/order-details-block.tsx`](../../extensions/admin-ui-logistics-demo/src/order-details-block.tsx) 展示最常见的 Block 模式：
+[`src/order-details-block.tsx`](../../extensions/admin-ui-logistics-block/src/order-details-block.tsx) 展示最常见的 Block 模式：
 
 1. 取当前订单 ID。
 2. 显示加载状态。
@@ -39,7 +39,7 @@
 
 ## 5. Selection Action：批量结果不能只返回一个布尔值
 
-[`src/order-index-selection-action.tsx`](../../extensions/admin-ui-logistics-demo/src/order-index-selection-action.tsx) 把结果拆成 `succeeded` 和 `failed`。这是批处理的最低可用反馈：
+[`src/order-index-selection-action.tsx`](../../extensions/admin-ui-logistics-selection/src/order-index-selection-action.tsx) 把结果拆成 `succeeded` 和 `failed`。这是批处理的最低可用反馈：
 
 - 商家知道处理了多少条。
 - 商家知道哪些订单失败。
