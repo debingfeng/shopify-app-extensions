@@ -1,7 +1,24 @@
 {
   "Dashboard": {
-    "title": "仪表盘",
+    "title": "Standhigher 技术实验室",
+    "description": "探索 Standhigher npm 包、Shopify App Extensions 与可复用的 App 能力。",
+    "packagesDescription": "通过交互示例体验 Standhigher 组件与工具。",
+    "extensionsDescription": "了解 Shopify 扩展的运行位置和各示例的测试方法。",
+    "capabilitiesDescription": "通过小型实验理解可复用的 Shopify App 能力。",
+    "openSection": "查看{section}",
     "shopLabel": "店铺"
+  },
+  "Packages": {
+    "title": "npm Playground",
+    "description": "这里将集中展示 Standhigher npm 包的交互示例。"
+  },
+  "Extensions": {
+    "title": "Extensions Lab",
+    "description": "这里将集中展示 Shopify 扩展运行环境的说明与示例。"
+  },
+  "Capabilities": {
+    "title": "公共能力实验室",
+    "description": "这里将集中展示可复用 Shopify App 能力的小型实验。"
   },
   "Settings": {
     "title": "设置"
@@ -10,7 +27,10 @@
     "title": "帮助"
   },
   "Navigation": {
-    "dashboard": "仪表盘",
+    "dashboard": "总览",
+    "packages": "npm Playground",
+    "extensions": "Extensions Lab",
+    "capabilities": "公共能力",
     "settings": "设置",
     "help": "帮助"
   },

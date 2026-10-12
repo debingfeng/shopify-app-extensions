@@ -1,24 +1,34 @@
 "use client";
 
 import type { MouseEvent } from "react";
-import { useEffect } from "react";
 import { useRouter } from "next/router";
 
 import { resolveLocaleValue } from "@/lib/i18n/pages";
 import { preserveHostShop } from "@/lib/shopify/url";
+import enMessages from "@/messages/en.json";
+import zhCNMessages from "@/messages/zh-CN.json";
+
+const navigationMessages = {
+  en: enMessages.Navigation,
+  "zh-CN": zhCNMessages.Navigation,
+};
+
+type NavigationKey = keyof typeof enMessages.Navigation;
 
 type NavItem = {
   href: string;
-  label: string;
+  labelKey: NavigationKey;
   rel?: "home";
 };
 
 const NAV_ITEMS: NavItem[] = [
-  { href: "", label: "Dashboard", rel: "home" as const },
-  { href: "", label: "Dashboard" },
-  { href: "/settings", label: "Settings" },
-  { href: "/help", label: "Help" },
-] as const;
+  { href: "", labelKey: "dashboard", rel: "home" },
+  { href: "", labelKey: "dashboard" },
+  { href: "/packages", labelKey: "packages" },
+  { href: "/extensions", labelKey: "extensions" },
+  { href: "/capabilities", labelKey: "capabilities" },
+  { href: "/help", labelKey: "help" },
+];
 
 function shouldHandleClientNavigation(event: MouseEvent<HTMLAnchorElement>) {
   return !(
@@ -39,16 +49,12 @@ function shouldHandleClientNavigation(event: MouseEvent<HTMLAnchorElement>) {
 export default function AppBridgeNav() {
   const router = useRouter();
   const locale = resolveLocaleValue(router.query.locale);
+  const labels = navigationMessages[locale];
   const items = NAV_ITEMS.map((item) => ({
     ...item,
     href: preserveHostShop(`/${locale}${item.href}`),
+    label: labels[item.labelKey],
   }));
-
-  useEffect(() => {
-    items.forEach((item) => {
-      void router.prefetch(item.href);
-    });
-  }, [items, router]);
 
   function handleClick(event: MouseEvent<HTMLAnchorElement>) {
     if (!shouldHandleClientNavigation(event)) return;
