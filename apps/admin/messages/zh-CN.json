@@ -10,15 +10,30 @@
   },
   "Packages": {
     "title": "npm Playground",
-    "description": "这里将集中展示 Standhigher npm 包的交互示例。"
+    "description": "浏览 Standhigher npm 包及其 Demo 状态。"
   },
   "Extensions": {
     "title": "Extensions Lab",
-    "description": "这里将集中展示 Shopify 扩展运行环境的说明与示例。"
+    "description": "浏览 Shopify 扩展场景及其实际运行环境。"
   },
   "Capabilities": {
     "title": "公共能力实验室",
-    "description": "这里将集中展示可复用 Shopify App 能力的小型实验。"
+    "description": "浏览可复用的 Shopify App 能力与小型实验。"
+  },
+  "Demos": {
+    "viewDetails": "查看详情",
+    "empty": "尚未收录示例。",
+    "scenario": "业务场景",
+    "interaction": "如何体验",
+    "usage": "使用方式",
+    "environment": "运行环境",
+    "prerequisites": "前置条件",
+    "status": {
+      "planned": "规划中",
+      "sourceReady": "已有源码 · 待店铺验证",
+      "localVerified": "本地已验证",
+      "storeVerified": "测试店铺已验证"
+    }
   },
   "Settings": {
     "title": "设置"

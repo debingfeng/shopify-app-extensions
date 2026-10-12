@@ -10,15 +10,30 @@
   },
   "Packages": {
     "title": "npm Playground",
-    "description": "Interactive examples for Standhigher packages will be collected here."
+    "description": "Explore Standhigher packages and their demo status."
   },
   "Extensions": {
     "title": "Extensions Lab",
-    "description": "Guides and examples for Shopify extension environments will be collected here."
+    "description": "Explore Shopify extension scenarios and their runtime environments."
   },
   "Capabilities": {
     "title": "Shared capabilities",
-    "description": "Small experiments for reusable Shopify app capabilities will be collected here."
+    "description": "Explore reusable Shopify app capabilities and focused experiments."
+  },
+  "Demos": {
+    "viewDetails": "View details",
+    "empty": "No examples are listed yet.",
+    "scenario": "Scenario",
+    "interaction": "Try it",
+    "usage": "Usage",
+    "environment": "Runtime",
+    "prerequisites": "Before you start",
+    "status": {
+      "planned": "Planned",
+      "sourceReady": "Source available · store check pending",
+      "localVerified": "Locally verified",
+      "storeVerified": "Verified in test store"
+    }
   },
   "Settings": {
     "title": "Settings"
