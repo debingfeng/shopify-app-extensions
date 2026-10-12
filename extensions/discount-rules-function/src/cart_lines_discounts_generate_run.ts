@@ -4,6 +4,7 @@ import {
   ProductDiscountSelectionStrategy,
   CartInput,
   CartLinesDiscountsGenerateRunResult,
+  CartOperation,
 } from '../generated/api';
 
 
@@ -32,7 +33,7 @@ export function cartLinesDiscountsGenerateRun(
     return maxLine;
   }, input.cart.lines[0]);
 
-  const operations = [];
+  const operations: CartOperation[] = [];
 
   if (hasOrderDiscountClass) {
     operations.push({
@@ -49,7 +50,7 @@ export function cartLinesDiscountsGenerateRun(
             ],
             value: {
               percentage: {
-                value: 10,
+                value: '10',
               },
             },
           },
@@ -74,7 +75,7 @@ export function cartLinesDiscountsGenerateRun(
             ],
             value: {
               percentage: {
-                value: 20,
+                value: '20',
               },
             },
           },

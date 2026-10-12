@@ -32,6 +32,7 @@ docs/                     # 仓库级架构与发布文档
 - [extensions](/Users/fengdebing/shopify-app/sh-shopify-app-admin-template/extensions)：扩展目录占位
 - [Admin UI Extension 学习手册](docs/admin-ui-extensions/README.md)：Block、Action、Selection Action 的技术文档与物流 demo
 - [Admin UI Extension 物流 demo](extensions/admin-ui-logistics-demo/README.md)：可运行的三类 Admin target 示例
+- [Checkout 扩展学习工程](docs/checkout-ui/README.md)：12 个 Checkout、Order Status 与 Functions Demo 的启动、验证和限制
 
 ## apps/admin 结构
 

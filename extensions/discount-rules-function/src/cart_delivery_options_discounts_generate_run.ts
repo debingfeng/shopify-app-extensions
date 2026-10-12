@@ -37,7 +37,7 @@ export function cartDeliveryOptionsDiscountsGenerateRun(
               ],
               value: {
                 percentage: {
-                  value: 100,
+                    value: '100',
                 },
               },
             },

@@ -6,9 +6,10 @@
   "scripts": {
     "shopify": "npm exec -- shopify",
     "typegen": "npm exec -- shopify app function typegen",
+    "typecheck": "pnpm typegen && tsc --noEmit",
     "build": "npm exec -- shopify app function build",
     "preview": "npm exec -- shopify app function run",
-    "test": "vitest"
+    "test": "vitest run"
   },
   "codegen": {
     "schema": "schema.graphql",
