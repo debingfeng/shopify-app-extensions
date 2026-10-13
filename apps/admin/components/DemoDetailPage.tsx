@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { Badge, BlockStack, Card, InlineStack, Layout, Page, Text } from "@shopify/polaris";
+import { Badge, BlockStack, Card, InlineStack, Layout, Link, Page, Text } from "@shopify/polaris";
 import { useTranslations } from "next-intl";
 
 import type { DemoEntry } from "@/demos/catalog";
@@ -11,6 +11,12 @@ type DemoDetailPageProps = {
   entry: DemoEntry;
   children?: ReactNode;
 };
+
+const repositoryUrl = "https://github.com/debingfeng/shopify-app-extensions";
+
+function repositoryPathUrl(path: string, kind: "tree" | "blob") {
+  return `${repositoryUrl}/${kind}/main/${path}`;
+}
 
 export default function DemoDetailPage({ entry, children }: DemoDetailPageProps) {
   const router = useRouter();
@@ -42,6 +48,36 @@ export default function DemoDetailPage({ entry, children }: DemoDetailPageProps)
               </BlockStack>
             </Card>
           </Layout.Section>
+          {entry.sourcePaths || entry.targets || entry.docsPath ? (
+            <Layout.Section>
+              <Card>
+                <BlockStack gap="400">
+                  {entry.sourcePaths ? (
+                    <>
+                      <Text as="h2" variant="headingMd">{t("source")}</Text>
+                      {entry.sourcePaths.map((path) => (
+                        <Link key={path} url={repositoryPathUrl(path, "tree")} external>{path}</Link>
+                      ))}
+                    </>
+                  ) : null}
+                  {entry.targets ? (
+                    <>
+                      <Text as="h2" variant="headingMd">{t("targets")}</Text>
+                      {entry.targets.map((target) => (
+                        <Text as="p" variant="bodyMd" key={target}>{target}</Text>
+                      ))}
+                    </>
+                  ) : null}
+                  {entry.docsPath ? (
+                    <>
+                      <Text as="h2" variant="headingMd">{t("guide")}</Text>
+                      <Link url={repositoryPathUrl(entry.docsPath, "blob")} external>{entry.docsPath}</Link>
+                    </>
+                  ) : null}
+                </BlockStack>
+              </Card>
+            </Layout.Section>
+          ) : null}
           {children ? <Layout.Section>{children}</Layout.Section> : null}
         </Layout>
       </Page>

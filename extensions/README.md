@@ -2,7 +2,7 @@
 
 该目录用于放置当前 Shopify App 的扩展项目。
 
-未来可在这里新增：
+当前已有：
 
 - `admin-ui-logistics-block/`：订单详情 Block
 - `admin-ui-logistics-demo/`：订单详情 Action

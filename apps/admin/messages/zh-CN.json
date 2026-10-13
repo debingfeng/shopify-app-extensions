@@ -28,6 +28,9 @@
     "usage": "使用方式",
     "environment": "运行环境",
     "prerequisites": "前置条件",
+    "source": "源码目录",
+    "targets": "Shopify targets",
+    "guide": "启动与验证指南",
     "status": {
       "planned": "规划中",
       "sourceReady": "已有源码 · 待店铺验证",

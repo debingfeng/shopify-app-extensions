@@ -28,6 +28,9 @@
     "usage": "Usage",
     "environment": "Runtime",
     "prerequisites": "Before you start",
+    "source": "Source directories",
+    "targets": "Shopify targets",
+    "guide": "Setup and test guide",
     "status": {
       "planned": "Planned",
       "sourceReady": "Source available · store check pending",
