@@ -12,6 +12,7 @@
 - `discount-rules-function/`
 - `order-status-learning/`
 - `theme-product-note/`：商品页 Theme App Block
+- `flow-acknowledge/`：Shopify Flow 备注确认 Action
 
 约定：
 

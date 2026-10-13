@@ -1,0 +1,15 @@
+[[extensions]]
+name = "Lab acknowledge note"
+type = "flow_action"
+handle = "lab-acknowledge-note"
+description = "Acknowledge a short note in a Standhigher Lab workflow."
+runtime_url = "/api/lab/flow-acknowledge"
+
+[settings]
+
+[[settings.fields]]
+type = "single_line_text_field"
+key = "note"
+name = "Note"
+description = "A short note for this test workflow."
+required = true

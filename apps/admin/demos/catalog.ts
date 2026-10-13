@@ -167,6 +167,38 @@ export const demoCatalog: Record<DemoCategory, DemoEntry[]> = {
   ],
   extensions: [
     {
+      slug: "flow-acknowledge",
+      title: { en: "Flow acknowledge action", "zh-CN": "Flow 备注确认 Action" },
+      summary: {
+        en: "A signed Flow action that acknowledges a short note without a business side effect.",
+        "zh-CN": "验证签名后确认收到短备注、且无业务副作用的 Flow Action。",
+      },
+      scenario: {
+        en: "Add a small custom step to a test automation workflow.",
+        "zh-CN": "在测试自动化工作流中加入一个小型自定义步骤。",
+      },
+      interaction: {
+        en: "Run pnpm app:dev, add the action in Shopify Flow, enter a note, trigger the workflow, and inspect its run log.",
+        "zh-CN": "运行 pnpm app:dev，在 Shopify Flow 中添加 Action、填写备注、触发工作流并查看运行日志。",
+      },
+      usage: {
+        en: "Flow sends a signed POST to a relative HTTPS runtime URL. The App verifies HMAC and the action handle before acknowledging it.",
+        "zh-CN": "Flow 向相对路径对应的 HTTPS runtime URL 发送签名 POST；App 在确认前验证 HMAC 与 Action handle。",
+      },
+      environment: {
+        en: "Shopify Flow action and App backend endpoint",
+        "zh-CN": "Shopify Flow Action 与 App 后端接口",
+      },
+      prerequisites: [
+        { en: "A test store with this App and Shopify Flow installed; custom-app Flow tasks require Shopify Plus or a Plus dev store.", "zh-CN": "已安装此 App 与 Shopify Flow 的测试店铺；自定义 App 的 Flow 任务要求 Shopify Plus 或 Plus 开发店铺。" },
+        { en: "The App backend must have SHOPIFY_API_SECRET configured.", "zh-CN": "App 后端必须配置 SHOPIFY_API_SECRET。" },
+      ],
+      status: "sourceReady",
+      sourcePaths: ["extensions/flow-acknowledge"],
+      targets: ["flow_action · /api/lab/flow-acknowledge"],
+      docsPath: "docs/flow-action/README.md",
+    },
+    {
       slug: "theme-product-note",
       title: { en: "Theme product note", "zh-CN": "Theme 商品页说明" },
       summary: {
