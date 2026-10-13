@@ -1,0 +1,13 @@
+.standhigher-product-note {
+  border: 1px solid currentColor;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.standhigher-product-note__heading {
+  margin: 0 0 0.5rem;
+}
+
+.standhigher-product-note__body > :last-child {
+  margin-bottom: 0;
+}

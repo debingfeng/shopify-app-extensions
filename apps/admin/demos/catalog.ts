@@ -139,6 +139,37 @@ export const demoCatalog: Record<DemoCategory, DemoEntry[]> = {
   ],
   extensions: [
     {
+      slug: "theme-product-note",
+      title: { en: "Theme product note", "zh-CN": "Theme 商品页说明" },
+      summary: {
+        en: "A configurable product-page app block for an Online Store 2.0 theme.",
+        "zh-CN": "面向 Online Store 2.0 主题的可配置商品页 App Block。",
+      },
+      scenario: {
+        en: "Let a merchant add a short product message without editing theme code.",
+        "zh-CN": "让商家无需修改主题代码即可添加简短商品说明。",
+      },
+      interaction: {
+        en: "Run pnpm app:dev, add Lab product note to a product template in the theme editor, and change its heading and description.",
+        "zh-CN": "运行 pnpm app:dev，在主题编辑器的商品模板添加 Lab product note，并修改标题和说明。",
+      },
+      usage: {
+        en: "The Liquid block runs in the storefront theme. This Admin page is only a guide; storefront preview awaits an installed test app.",
+        "zh-CN": "Liquid Block 运行在店铺主题中；此 Admin 页面仅作指南，前台预览待测试 App 安装后验证。",
+      },
+      environment: {
+        en: "Online Store 2.0 product template",
+        "zh-CN": "Online Store 2.0 商品模板",
+      },
+      prerequisites: [
+        { en: "A test store with this app installed, a product, and an Online Store 2.0 theme that supports app blocks.", "zh-CN": "已安装此 App、存在商品且使用支持 App Block 的 Online Store 2.0 主题的测试店铺。" },
+      ],
+      status: "sourceReady",
+      sourcePaths: ["extensions/theme-product-note"],
+      targets: ["Theme app block · section · product template"],
+      docsPath: "docs/theme-app-extension/README.md",
+    },
+    {
       slug: "admin-ui-logistics",
       title: { en: "Admin UI logistics", "zh-CN": "Admin UI 物流示例" },
       summary: {

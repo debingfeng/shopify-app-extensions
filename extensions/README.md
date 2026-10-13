@@ -11,6 +11,7 @@
 - `checkout-validation-function/`
 - `discount-rules-function/`
 - `order-status-learning/`
+- `theme-product-note/`：商品页 Theme App Block
 
 约定：
 

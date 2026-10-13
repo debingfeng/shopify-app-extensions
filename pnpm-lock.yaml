@@ -189,6 +189,8 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
 
+  extensions/theme-product-note: {}
+
   packages/config-eslint: {}
 
   packages/config-typescript: {}

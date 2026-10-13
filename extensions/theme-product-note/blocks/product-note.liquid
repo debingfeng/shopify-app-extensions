@@ -1,0 +1,29 @@
+<div class="standhigher-product-note">
+  <h2 class="standhigher-product-note__heading">{{ block.settings.heading | escape }}</h2>
+  <div class="standhigher-product-note__body">{{ block.settings.body }}</div>
+</div>
+
+{% schema %}
+{
+  "name": "Lab product note",
+  "target": "section",
+  "enabled_on": {
+    "templates": ["product"]
+  },
+  "stylesheet": "product-note.css",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Made for everyday use"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Description",
+      "default": "<p>A short message configured in the theme editor.</p>"
+    }
+  ]
+}
+{% endschema %}
