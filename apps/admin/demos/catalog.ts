@@ -167,6 +167,38 @@ export const demoCatalog: Record<DemoCategory, DemoEntry[]> = {
   ],
   extensions: [
     {
+      slug: "lab-web-pixel",
+      title: { en: "Web Pixel page view", "zh-CN": "Web Pixel 页面浏览" },
+      summary: {
+        en: "A consent-aware page-view subscription in Shopify's pixel sandbox.",
+        "zh-CN": "在 Shopify Pixel 沙箱中按同意状态订阅页面浏览事件。",
+      },
+      scenario: {
+        en: "Observe that a storefront page visit emits a customer event.",
+        "zh-CN": "观察店铺前台访问如何产生顾客事件。",
+      },
+      interaction: {
+        en: "Build the extension, create the store's Web Pixel record, then inspect the storefront console after analytics consent.",
+        "zh-CN": "构建扩展并在店铺创建 Web Pixel 记录，在获得 analytics 同意后查看前台 Console。",
+      },
+      usage: {
+        en: "The Pixel logs only the event name and an in-memory count. It makes no tracking request and does not run inside this Admin page.",
+        "zh-CN": "Pixel 仅记录事件名称和内存计数，不发送追踪请求，也不在此 Admin 页面运行。",
+      },
+      environment: {
+        en: "Shopify Web Pixel strict sandbox on the online store",
+        "zh-CN": "店铺前台的 Shopify Web Pixel strict sandbox",
+      },
+      prerequisites: [
+        { en: "The App is installed with write_pixels and read_customer_events scopes, and its Web Pixel record is connected.", "zh-CN": "App 已获 write_pixels、read_customer_events scope，且 Web Pixel 记录已连接。" },
+        { en: "A test storefront and analytics consent are available.", "zh-CN": "可访问的测试店铺前台和 analytics 同意状态。" },
+      ],
+      status: "sourceReady",
+      sourcePaths: ["extensions/lab-web-pixel"],
+      targets: ["web_pixel_extension · page_viewed"],
+      docsPath: "docs/web-pixel/README.md",
+    },
+    {
       slug: "flow-acknowledge",
       title: { en: "Flow acknowledge action", "zh-CN": "Flow 备注确认 Action" },
       summary: {

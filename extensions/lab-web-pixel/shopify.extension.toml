@@ -1,0 +1,18 @@
+type = "web_pixel_extension"
+name = "Standhigher page view demo"
+uid = "fa722ef8-7ead-4a80-b415-41e398fb1e3a"
+runtime_context = "strict"
+
+[customer_privacy]
+analytics = true
+marketing = false
+preferences = false
+sale_of_data = "disabled"
+
+[settings]
+type = "object"
+
+[settings.fields.demoLabel]
+name = "Demo label"
+description = "Label printed alongside page-view counts in the browser console"
+type = "single_line_text_field"

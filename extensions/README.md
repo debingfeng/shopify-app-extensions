@@ -13,6 +13,7 @@
 - `order-status-learning/`
 - `theme-product-note/`：商品页 Theme App Block
 - `flow-acknowledge/`：Shopify Flow 备注确认 Action
+- `lab-web-pixel/`：页面浏览 Web Pixel
 
 约定：
 

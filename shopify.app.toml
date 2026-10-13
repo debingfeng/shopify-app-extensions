@@ -35,7 +35,7 @@ uri = "https://test-core.example.com/api/v1/shopify/compliance/webhook/bestfeed"
 
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
-scopes = "read_products,write_products"
+scopes = "read_products,write_products,write_pixels,read_customer_events"
 optional_scopes = ["read_orders"]
 use_legacy_install_flow = false
 
