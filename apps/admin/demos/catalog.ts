@@ -25,6 +25,34 @@ export type DemoEntry = {
 export const demoCatalog: Record<DemoCategory, DemoEntry[]> = {
   packages: [
     {
+      slug: "charts",
+      title: { en: "Charts", "zh-CN": "数据图表" },
+      summary: {
+        en: "Interactive trend chart for app-owned sample analytics.",
+        "zh-CN": "基于 App 模拟分析数据的交互式趋势图。",
+      },
+      scenario: {
+        en: "Compare sample sales and order counts across short date ranges.",
+        "zh-CN": "对比短时间范围内的模拟销售额与订单数。",
+      },
+      interaction: {
+        en: "Switch the metric and date range; hover chart points to inspect values.",
+        "zh-CN": "切换指标和日期范围，并悬停图表节点查看数值。",
+      },
+      usage: {
+        en: "Use ChartLocalizationProvider, ChartCard, and TrendChart from @standhigher/charts. The host app provides data and Recharts 3.",
+        "zh-CN": "使用 @standhigher/charts 的 ChartLocalizationProvider、ChartCard 和 TrendChart；宿主 App 提供数据与 Recharts 3。",
+      },
+      environment: {
+        en: "Embedded Admin page (React 18.3 and Polaris)",
+        "zh-CN": "Embedded Admin 页面（React 18.3 与 Polaris）",
+      },
+      prerequisites: [
+        { en: "Open the app from Shopify Admin. This demo uses local sample data only.", "zh-CN": "从 Shopify Admin 打开应用；此示例仅使用本地模拟数据。" },
+      ],
+      status: "localVerified",
+    },
+    {
       slug: "polaris-data-table",
       title: { en: "Polaris Data Table", "zh-CN": "Polaris 数据表格" },
       summary: {

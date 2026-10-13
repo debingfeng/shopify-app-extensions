@@ -13,6 +13,10 @@ const ShopifyAppKitDemo = dynamic(
   () => import("@/demos/packages/shopify-app-kit/Demo"),
   { ssr: false },
 );
+const ChartsDemo = dynamic(
+  () => import("@/demos/packages/charts/Demo"),
+  { ssr: false },
+);
 
 export const getServerSideProps: GetServerSideProps = (context) =>
   getDemoDetailProps("packages", context);
@@ -27,6 +31,8 @@ export default function PackageDemoPage() {
     ? <PolarisDataTableDemo />
     : slug === "shopify-app-kit"
       ? <ShopifyAppKitDemo />
+      : slug === "charts"
+        ? <ChartsDemo />
       : null;
   return <DemoDetailPage entry={entry}>{demo}</DemoDetailPage>;
 }
