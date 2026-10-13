@@ -33,12 +33,12 @@ export const demoCatalog: Record<DemoCategory, DemoEntry[]> = {
         "zh-CN": "通过小型商品列表体验常见表格操作。",
       },
       interaction: {
-        en: "An interactive example will be added here.",
-        "zh-CN": "交互示例将在这里接入。",
+        en: "Use the table below to search, filter, sort, select rows, and change pages.",
+        "zh-CN": "使用下方表格搜索、筛选、排序、选择行并翻页。",
       },
       usage: {
-        en: "Install @standhigher/polaris-data-table in the Admin app.",
-        "zh-CN": "在 Admin 应用中安装 @standhigher/polaris-data-table。",
+        en: "Import Table from @standhigher/polaris-data-table and control query, page data, and selection in the host page.",
+        "zh-CN": "从 @standhigher/polaris-data-table 导入 Table，并在宿主页面控制 query、分页数据与选择状态。",
       },
       environment: {
         en: "Embedded Admin page (React and Polaris)",
@@ -47,7 +47,35 @@ export const demoCatalog: Record<DemoCategory, DemoEntry[]> = {
       prerequisites: [
         { en: "Open the app from Shopify Admin.", "zh-CN": "从 Shopify Admin 打开应用。" },
       ],
-      status: "planned",
+      status: "localVerified",
+    },
+    {
+      slug: "shopify-app-kit",
+      title: { en: "Shopify App Kit", "zh-CN": "Shopify App Kit" },
+      summary: {
+        en: "A focused form save flow using the package hook, within the existing Admin shell.",
+        "zh-CN": "在现有 Admin 壳层中体验包提供的表单保存流程 Hook。",
+      },
+      scenario: {
+        en: "Edit a store setting, then save or discard the draft.",
+        "zh-CN": "编辑一项店铺设置，并保存或放弃草稿。",
+      },
+      interaction: {
+        en: "Change the field and try Save or Discard. Data stays in this demo only.",
+        "zh-CN": "修改字段后尝试保存或放弃；数据仅保留在本次演示中。",
+      },
+      usage: {
+        en: "Import useDirtyForm from @standhigher/shopify-app-kit/save-flow.",
+        "zh-CN": "从 @standhigher/shopify-app-kit/save-flow 导入 useDirtyForm。",
+      },
+      environment: {
+        en: "Embedded Admin page (React and Polaris)",
+        "zh-CN": "Embedded Admin 页面（React 与 Polaris）",
+      },
+      prerequisites: [
+        { en: "Open the app from Shopify Admin.", "zh-CN": "从 Shopify Admin 打开应用。" },
+      ],
+      status: "localVerified",
     },
   ],
   extensions: [

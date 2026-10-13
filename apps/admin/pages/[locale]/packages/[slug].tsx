@@ -1,8 +1,18 @@
 import type { GetServerSideProps } from "next";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 
 import DemoDetailPage from "@/components/DemoDetailPage";
 import { getDemoDetailProps, getDemoEntry } from "@/demos/catalog";
+
+const PolarisDataTableDemo = dynamic(
+  () => import("@/demos/packages/polaris-data-table/Demo"),
+  { ssr: false },
+);
+const ShopifyAppKitDemo = dynamic(
+  () => import("@/demos/packages/shopify-app-kit/Demo"),
+  { ssr: false },
+);
 
 export const getServerSideProps: GetServerSideProps = (context) =>
   getDemoDetailProps("packages", context);
@@ -11,5 +21,12 @@ export default function PackageDemoPage() {
   const router = useRouter();
   const slug = router.query.slug;
   const entry = typeof slug === "string" ? getDemoEntry("packages", slug) : undefined;
-  return entry ? <DemoDetailPage entry={entry} /> : null;
+  if (!entry) return null;
+
+  const demo = slug === "polaris-data-table"
+    ? <PolarisDataTableDemo />
+    : slug === "shopify-app-kit"
+      ? <ShopifyAppKitDemo />
+      : null;
+  return <DemoDetailPage entry={entry}>{demo}</DemoDetailPage>;
 }
