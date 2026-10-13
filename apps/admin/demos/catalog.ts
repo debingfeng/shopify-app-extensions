@@ -332,12 +332,12 @@ export const demoCatalog: Record<DemoCategory, DemoEntry[]> = {
         "zh-CN": "调用受保护的 App 接口前获取 ID Token。",
       },
       interaction: {
-        en: "A safe request demo will be added here.",
-        "zh-CN": "安全的请求示例将在这里接入。",
+        en: "Request a token from App Bridge and inspect only the result state. The token itself is never displayed or logged.",
+        "zh-CN": "向 App Bridge 请求 Token，仅查看结果状态；Token 本身不会显示或记录。",
       },
       usage: {
-        en: "Reuse the existing useTokenProvider hook.",
-        "zh-CN": "复用现有的 useTokenProvider Hook。",
+        en: "Reuse the existing useTokenProvider hook. Receiving a token in the browser does not validate its signature or authorize backend requests.",
+        "zh-CN": "复用现有 useTokenProvider Hook；浏览器收到 Token 不代表已验证签名或获得后端请求授权。",
       },
       environment: {
         en: "Embedded Admin page and app backend",
@@ -346,7 +346,35 @@ export const demoCatalog: Record<DemoCategory, DemoEntry[]> = {
       prerequisites: [
         { en: "Open the app from Shopify Admin.", "zh-CN": "从 Shopify Admin 打开应用。" },
       ],
-      status: "planned",
+      status: "localVerified",
+    },
+    {
+      slug: "mock-api-debug",
+      title: { en: "Mock API and error states", "zh-CN": "Mock API 与错误状态" },
+      summary: {
+        en: "Inspect success and failure responses from a local read-only endpoint.",
+        "zh-CN": "观察本地只读接口的成功与失败响应。",
+      },
+      scenario: {
+        en: "See how a page reports HTTP status, elapsed time, and request ID.",
+        "zh-CN": "查看页面如何展示 HTTP 状态、耗时和请求 ID。",
+      },
+      interaction: {
+        en: "Choose a response type and send a request. No Shopify data or token is sent.",
+        "zh-CN": "选择响应类型并发送请求；不会发送 Shopify 数据或 Token。",
+      },
+      usage: {
+        en: "Use the local /api/lab/mock-response endpoint to exercise explicit success, validation, and server-error UI.",
+        "zh-CN": "通过本地 /api/lab/mock-response 接口体验成功、校验失败和服务端错误 UI。",
+      },
+      environment: {
+        en: "Embedded Admin page and local Next.js API",
+        "zh-CN": "Embedded Admin 页面与本地 Next.js API",
+      },
+      prerequisites: [
+        { en: "Open the app from Shopify Admin, or use the local UI stub for frontend checks.", "zh-CN": "从 Shopify Admin 打开应用；前端检查也可使用本地 UI stub。" },
+      ],
+      status: "localVerified",
     },
   ],
 };
