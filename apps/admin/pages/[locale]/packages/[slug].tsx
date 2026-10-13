@@ -21,6 +21,10 @@ const RichTextDemo = dynamic(
   () => import("@/demos/packages/rich-text/Demo"),
   { ssr: false },
 );
+const PuckPageBuilderDemo = dynamic(
+  () => import("@/demos/packages/puck-page-builder/Demo"),
+  { ssr: false },
+);
 
 export const getServerSideProps: GetServerSideProps = (context) =>
   getDemoDetailProps("packages", context);
@@ -39,6 +43,8 @@ export default function PackageDemoPage() {
         ? <ChartsDemo />
         : slug === "rich-text"
           ? <RichTextDemo />
+          : slug === "puck-page-builder"
+            ? <PuckPageBuilderDemo />
       : null;
   return <DemoDetailPage entry={entry}>{demo}</DemoDetailPage>;
 }

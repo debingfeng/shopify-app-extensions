@@ -25,6 +25,34 @@ export type DemoEntry = {
 export const demoCatalog: Record<DemoCategory, DemoEntry[]> = {
   packages: [
     {
+      slug: "puck-page-builder",
+      title: { en: "Puck page builder", "zh-CN": "Puck 页面编辑器" },
+      summary: {
+        en: "Compose a small page document from registered blocks, with local in-memory save.",
+        "zh-CN": "使用注册区块组合简易页面文档，并在页面内存中保存。",
+      },
+      scenario: {
+        en: "Build a short informational page from a heading and body block.",
+        "zh-CN": "用标题和正文区块搭建一张简短说明页。",
+      },
+      interaction: {
+        en: "Add or edit a Lab message block, then use Save. Refreshing the page resets the draft.",
+        "zh-CN": "添加或编辑 Lab message 区块后点击保存；刷新页面会重置草稿。",
+      },
+      usage: {
+        en: "Define a block in an immutable extension registry and pass a PageDocument to PageDocumentEditorShell. No Shopify data or publishing adapter is connected.",
+        "zh-CN": "在不可变 Extension Registry 中定义区块，再将 PageDocument 传给 PageDocumentEditorShell；不接入 Shopify 数据或发布适配器。",
+      },
+      environment: {
+        en: "Embedded Admin page (client-side Puck editor)",
+        "zh-CN": "Embedded Admin 页面（客户端 Puck 编辑器）",
+      },
+      prerequisites: [
+        { en: "Open the app from Shopify Admin. The draft stays in this browser page only.", "zh-CN": "从 Shopify Admin 打开应用；草稿仅保留在当前浏览器页面。" },
+      ],
+      status: "localVerified",
+    },
+    {
       slug: "rich-text",
       title: { en: "Rich text toolkit", "zh-CN": "富文本工具包" },
       summary: {
