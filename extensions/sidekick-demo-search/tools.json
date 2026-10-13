@@ -1,0 +1,16 @@
+[
+  {
+    "$schema": "https://extensions.shopifycdn.com/shopifycloud/schemas/v1/tool.json",
+    "name": "search_lab_demos",
+    "description": "Find Standhigher Lab demos for npm components and Shopify app extensions. Returns links to read-only demo pages in this app.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "A package name, Shopify extension type, or short topic in English or Chinese"
+        }
+      }
+    }
+  }
+]

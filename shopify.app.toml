@@ -46,3 +46,6 @@ redirect_urls = [
 
 [access.admin]
 direct_api_mode = "online"
+
+[sidekick]
+extensions_summary = "Search Standhigher Lab demos for npm components and Shopify app extensions, and open their learning pages."

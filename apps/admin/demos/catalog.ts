@@ -167,6 +167,37 @@ export const demoCatalog: Record<DemoCategory, DemoEntry[]> = {
   ],
   extensions: [
     {
+      slug: "sidekick-demo-search",
+      title: { en: "Sidekick demo search", "zh-CN": "Sidekick 演示搜索" },
+      summary: {
+        en: "A read-only Sidekick tool that finds Lab demos and returns embedded app links.",
+        "zh-CN": "只读 Sidekick 工具：搜索 Lab 演示并返回 Embedded App 页面链接。",
+      },
+      scenario: {
+        en: "Ask Sidekick which package or Shopify extension examples are available in Standhigher Lab.",
+        "zh-CN": "向 Sidekick 询问 Standhigher Lab 中有哪些 npm 包或 Shopify Extension 示例。",
+      },
+      interaction: {
+        en: "Install the App in a test store, ask Sidekick for a Lab topic, and open a returned demo link.",
+        "zh-CN": "在测试店铺安装 App，向 Sidekick 询问 Lab 主题，再打开返回的 Demo 链接。",
+      },
+      usage: {
+        en: "The tool searches a small static index in the extension sandbox. It does not access the store or call the App backend.",
+        "zh-CN": "工具在扩展沙箱中搜索小型静态索引；不访问店铺数据，也不调用 App 后端。",
+      },
+      environment: {
+        en: "Shopify Sidekick admin.app.tools.data sandbox",
+        "zh-CN": "Shopify Sidekick admin.app.tools.data 沙箱",
+      },
+      prerequisites: [
+        { en: "A test store with this App installed and Sidekick extension support.", "zh-CN": "已安装此 App 且支持 Sidekick 扩展的测试店铺。" },
+      ],
+      status: "sourceReady",
+      sourcePaths: ["extensions/sidekick-demo-search"],
+      targets: ["admin.app.tools.data · search_lab_demos"],
+      docsPath: "docs/sidekick/README.md",
+    },
+    {
       slug: "lab-web-pixel",
       title: { en: "Web Pixel page view", "zh-CN": "Web Pixel 页面浏览" },
       summary: {

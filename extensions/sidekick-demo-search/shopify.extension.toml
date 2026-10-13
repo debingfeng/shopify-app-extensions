@@ -1,0 +1,14 @@
+api_version = "2026-07"
+
+[[extensions]]
+name = "Standhigher Lab demo search"
+description = "Search Standhigher Lab package and Shopify extension demos by topic and open their guide pages"
+handle = "sidekick-demo-search"
+uid = "8cff088f-0866-4c9e-b7da-389ba711d808"
+type = "ui_extension"
+
+[[extensions.targeting]]
+module = "./src/index.js"
+target = "admin.app.tools.data"
+tools = "./tools.json"
+instructions = "./instructions.md"
