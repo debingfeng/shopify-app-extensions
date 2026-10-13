@@ -25,6 +25,34 @@ export type DemoEntry = {
 export const demoCatalog: Record<DemoCategory, DemoEntry[]> = {
   packages: [
     {
+      slug: "rich-text",
+      title: { en: "Rich text toolkit", "zh-CN": "富文本工具包" },
+      summary: {
+        en: "Edit Tiptap JSON and preview sanitized Shopify HTML through the server package.",
+        "zh-CN": "编辑 Tiptap JSON，并通过服务端包预览净化后的 Shopify HTML。",
+      },
+      scenario: {
+        en: "Draft a short product description and inspect its safe HTML output.",
+        "zh-CN": "编写一段商品描述并查看安全的 HTML 输出。",
+      },
+      interaction: {
+        en: "Edit the content, then click Generate preview. The demo does not save to Shopify.",
+        "zh-CN": "编辑内容后点击生成预览；示例不会保存到 Shopify。",
+      },
+      usage: {
+        en: "The editor supplies JSON; rich-text-core wraps it; rich-text-server validates and renders HTML. Published editor 1.0.0 declares Polaris 12, while this lab uses Polaris 13; verify this combination again before production use.",
+        "zh-CN": "编辑器输出 JSON，rich-text-core 包装文档，rich-text-server 验证并渲染 HTML。已发布编辑器 1.0.0 声明支持 Polaris 12，而本实验室使用 Polaris 13；生产使用前需重新核对兼容性。",
+      },
+      environment: {
+        en: "Embedded Admin editor and local Next.js preview API",
+        "zh-CN": "Embedded Admin 编辑器与本地 Next.js 预览 API",
+      },
+      prerequisites: [
+        { en: "Open the app from Shopify Admin. Preview uses only the content you enter.", "zh-CN": "从 Shopify Admin 打开应用；预览仅处理你输入的内容。" },
+      ],
+      status: "localVerified",
+    },
+    {
       slug: "charts",
       title: { en: "Charts", "zh-CN": "数据图表" },
       summary: {

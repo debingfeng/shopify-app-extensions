@@ -17,6 +17,10 @@ const ChartsDemo = dynamic(
   () => import("@/demos/packages/charts/Demo"),
   { ssr: false },
 );
+const RichTextDemo = dynamic(
+  () => import("@/demos/packages/rich-text/Demo"),
+  { ssr: false },
+);
 
 export const getServerSideProps: GetServerSideProps = (context) =>
   getDemoDetailProps("packages", context);
@@ -33,6 +37,8 @@ export default function PackageDemoPage() {
       ? <ShopifyAppKitDemo />
       : slug === "charts"
         ? <ChartsDemo />
+        : slug === "rich-text"
+          ? <RichTextDemo />
       : null;
   return <DemoDetailPage entry={entry}>{demo}</DemoDetailPage>;
 }

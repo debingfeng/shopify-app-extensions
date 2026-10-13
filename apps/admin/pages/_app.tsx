@@ -6,6 +6,7 @@ import EmbeddedAppShell from "@/components/EmbeddedAppShell";
 import type { Locale } from "@/lib/i18n/routing";
 import "../styles/globals.css";
 import "@shopify/polaris/build/esm/styles.css";
+import "@standhigher/shopify-rich-text-editor/styles.css";
 
 type LocalePageProps = {
   locale?: Locale;
